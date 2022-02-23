@@ -1,0 +1,45 @@
+.main {
+  width: 100%;
+  height: 100%;
+  background-color: var(--clr-quinary);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-content .left {
+  flex: 1 1 45%;
+  min-width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-content .left img {
+  width: 100%;
+  height: 100%;
+}
+
+.main-content .right {
+  flex: 1 1 40%;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  color: var(--clr-primary);
+}
+
+.text {
+  font-size: 1.25rem;
+}

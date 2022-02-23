@@ -1,0 +1,88 @@
+.testimonials {
+  width: 100%;
+  padding: 4vh;
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+}
+
+.testimonials .title {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 4.5rem);
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.testimonials .content {
+  max-width: 100rem;
+  margin: 0 auto;
+  border: 1px solid var(--clr-white);
+}
+
+.testimonials .slider {
+  max-width: 60rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: 4vh 1vw;
+}
+
+.testimonials .slide {
+  /* display: none; */
+  animation: slide 1s linear;
+}
+
+.testimonials .slide h3 {
+  font-size: clamp(1.2rem, 3vw, 3rem);
+  font-weight: 600;
+}
+
+.testimonials .slide-para {
+  font-size: 25px;
+  font-weight: 100;
+}
+
+/* .testimonials .slide.active {
+  display: block;
+  animation: slide 1s linear;
+} */
+
+@keyframes slide {
+  0% {
+    transform: translateX(-2rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.testimonials .indicator {
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+  display: flex;
+  justify-content: center;
+}
+
+.testimonials .indicator img {
+  height: calc(7rem + 6vw);
+  width: calc(7rem + 6vw);
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 2vh 2vw;
+  opacity: 0.2;
+  border: 0.2rem solid #fddb3a;
+  cursor: pointer;
+  transition: opacity 1s ease;
+}
+
+.testimonials .indicator img.active {
+  opacity: 1;
+}
+
+@media screen and (max-width: 550px) {
+  .testimonials .indicator img {
+    height: 80px;
+    width: 80px;
+  }
+}

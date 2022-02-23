@@ -1,0 +1,49 @@
+<app-filter (changeEvent)="sort($event)"></app-filter>
+<section class="main">
+  <div class="registered main-grid">
+    <hr />
+    <div
+      *ngFor="
+        let registered of registeredVaccinations | sort: sortType;
+        even as isEven
+      "
+      class="item card"
+    >
+      <img
+        src="../../../../../../assets/images/avatars/50426.jpg"
+        class="card-img-top"
+        alt="card-img"
+        *ngIf="isEven"
+      />
+      <img
+        src="../../../../../../assets/images/avatars/63769.jpg"
+        class="card-img-top"
+        alt="card-img"
+        *ngIf="!isEven"
+      />
+      <div class="card-body">
+        <h2 class="card-title">
+          {{ registered.name }}
+          <span
+            *ngIf="registered.vaccination.length > 1; else firstDose"
+            class="badge bg-success"
+            >FULLY VACCINATED</span
+          >
+          <ng-template #firstDose>
+            <span class="badge bg-warning text-dark">FIRST DOSE</span>
+          </ng-template>
+        </h2>
+        <p class="card-text">DOB :- {{ registered.dob }}</p>
+      </div>
+      <div class="footer">
+        <a
+          [routerLink]="[
+            '/admin/view-registered-vaccinations/details',
+            registered.id
+          ]"
+          >Get Details<i class="fas fa-external-link-alt"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</section>

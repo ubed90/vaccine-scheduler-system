@@ -1,0 +1,83 @@
+.hero {
+  width: 100%;
+  min-height: calc(100vh - 3.3rem);
+  background-image: url("../../../../../../assets/images/hero-images/vaccination_1.jpg");
+  position: relative;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: 0.4s;
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    180deg,
+    hsl(0, 0%, 0%, 0.4) 10%,
+    hsl(0, 0%, 100%, 0.7)
+  );
+  z-index: -1;
+  backdrop-filter: blur(0.05em);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  color: var(--clr-primary);
+  /* background-image: var(--linear-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  color: transparent; */
+}
+
+.hero-content img {
+  transform: scale(1.3);
+  animation: arrow 1s ease-in-out infinite;
+}
+
+@keyframes arrow {
+  0%,
+  100% {
+    transform: translateY(0) scale(1.3);
+  }
+
+  50% {
+    transform: translateY(3rem) scale(1.3);
+  }
+}
+
+.hero-content a {
+  color: #fff;
+  margin-top: 5rem;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  padding: 0.5em 1em;
+  font-weight: 700;
+  border-radius: 0.5em;
+  background-color: var(--clr-primary);
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.hero-content a:hover {
+  background-color: unset;
+  color: var(--clr-primary);
+  border: 3px solid var(--clr-primary);
+}

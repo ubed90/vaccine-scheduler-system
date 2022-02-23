@@ -1,0 +1,211 @@
+.main {
+  /* background-image: url("../../../../../assets/images/hero-images/vaccination_2.jpg");
+    background-position: 10% 10%;
+    background-repeat: no-repeat;
+    background-size: cover; */
+
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+
+.ng-touched.ng-invalid[name="password"] {
+  border-bottom: 3px red solid;
+}
+.ng-touched.ng-valid[name="password"] {
+  border-bottom: 3px green solid;
+}
+
+/* .main::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: -1;
+    backdrop-filter: blur(0.05rem);
+  } */
+
+.main-content {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-gap: 1rem;
+  align-items: center;
+}
+
+.left {
+  max-width: 600px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+
+  --font-color: #9f3bab;
+  --line-height: 1.2;
+}
+
+.title {
+  font-size: clamp(1.5rem, 4vw, 2.6rem);
+  color: var(--font-color);
+  font-weight: bolder;
+  line-height: var(--line-height);
+}
+
+.text {
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  max-width: 23ch;
+  font-weight: bold;
+  line-height: var(--line-height);
+}
+
+.hero-link {
+  color: var(--clr-primary);
+  border: 1px solid var(--clr-primary);
+  padding: 0.4em 1.5em;
+  border-radius: 5px;
+  font-weight: bold;
+
+  align-self: flex-start;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.hero-link:hover {
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  text-decoration: none;
+}
+
+form {
+  max-width: 380px;
+  padding: 0 0.5rem;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+form h3 {
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  color: var(--clr-primary);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid var(--clr-primary);
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  outline: none;
+}
+
+input + label {
+  font-size: 0.7rem;
+  color: var(--clr-primary);
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  font-size: 1rem;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.username label {
+  font-size: 0.7rem;
+  top: -10px;
+  left: 12px;
+  padding: 0 0.2em;
+  background-color: var(--clr-tertiary);
+}
+
+.pass-input {
+  padding-right: 2rem !important;
+}
+
+.pass-input::placeholder {
+  color: transparent;
+}
+
+.pass-input:focus + label,
+.pass-input:not(:placeholder-shown).pass-input:not(:focus) + label {
+  font-size: 0.7rem;
+  top: -10px;
+  left: 12px;
+  padding: 0 0.2em;
+  background-color: var(--clr-tertiary);
+}
+
+.form-group i {
+  font-size: 1.2rem;
+  color: var(--clr-primary);
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.cta {
+  display: flex;
+  gap: 1rem;
+}
+
+.cta > * {
+  width: 100%;
+}
+
+.invalid-password {
+  position: absolute;
+  padding-block: 0.4rem;
+
+  bottom: 0;
+  right: -100%;
+  transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.invalid-password.active {
+  right: 5%;
+}
+
+@media screen and (max-width: 600px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    padding-block: 3rem;
+    grid-gap: 2rem;
+  }
+
+  .left {
+    max-width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    order: 1;
+  }
+
+  .hero-link {
+    align-self: center;
+  }
+
+  form {
+    text-align: center;
+  }
+
+  .left::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: var(--clr-primary);
+    left: 0;
+    top: -0.7rem;
+  }
+}

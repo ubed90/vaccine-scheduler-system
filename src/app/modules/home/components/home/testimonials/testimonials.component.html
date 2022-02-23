@@ -1,0 +1,65 @@
+<section class="testimonials">
+  <h2 class="title">Our Reviews</h2>
+  <div class="content">
+    <!-- Slider -->
+    <div class="slider" [ngSwitch]="tab">
+      <!-- Slide 1 -->
+      <div class="slide" *ngSwitchCase="1">
+        <p class="slide-para">
+          " Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto autem
+          placeat natus iste aut inventore voluptas nesciunt consectetur quod
+          sint. "
+        </p>
+        <h3 class="slide-title">~ Sara</h3>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide" *ngSwitchCase="2">
+        <p class="slide-para">
+          " Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto autem
+          placeat natus iste aut inventore voluptas nesciunt consectetur quod
+          sint. "
+        </p>
+        <h3 class="slide-title">~ John</h3>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide" *ngSwitchCase="3">
+        <p class="slide-para">
+          " Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto autem
+          placeat natus iste aut inventore voluptas nesciunt consectetur quod
+          sint. "
+        </p>
+        <h3 class="slide-title">~ Stacia</h3>
+      </div>
+    </div>
+
+    <!-- Indicator -->
+    <div class="indicator">
+      <img
+        src="../../../../../../assets/images/testimonials/testimonial-1.jpg"
+        alt="testimonial-1"
+        class="indicator-img active"
+        data-id="0"
+        [ngClass]="{ active: tab === 1 }"
+        (click)="tab = 1"
+      />
+      <img
+        src="../../../../../../assets/images/testimonials/testimonial-2.jpg"
+        alt="testimonial-2"
+        class="indicator-img"
+        data-id="1"
+        [ngClass]="{ active: tab === 2 }"
+        (click)="tab = 2"
+      />
+      <img
+        src="../../../../../../assets/images/testimonials/testimonial-3.jpg"
+        alt="testimonial-3"
+        class="indicator-img"
+        data-id="2"
+        [ngClass]="{ active: tab === 3 }"
+        (click)="tab = 3"
+      />
+    </div>
+  </div>
+</section>

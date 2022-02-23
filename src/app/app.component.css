@@ -1,0 +1,15 @@
+header {
+  background-color: var(--clr-primary);
+  height: 3.3rem;
+
+  display: flex;
+  align-items: center;
+}
+
+/* app-footer {
+  margin-top: auto;
+} */
+
+.mainContainer {
+  height: 100%;
+}

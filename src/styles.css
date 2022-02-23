@@ -1,0 +1,69 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --clr-primary: hsl(340, 49%, 45%);
+  --clr-secondary: hsl(211, 71%, 24%);
+  --clr-tertiary: hsl(20, 35%, 90%);
+  --clr-quaternary: hsl(18, 60%, 82%);
+  --clr-quinary: hsl(337, 5%, 71%);
+
+  --clr-black: #151111;
+  --clr-primary-m: hsl(11, 69%, 74%);
+  --clr-white: #fff;
+  --clr-white-2: #bababa;
+
+  --linear-gradient: linear-gradient(
+    153deg,
+    hsl(340, 49%, 45%),
+    hsl(211, 71%, 24%)
+  );
+
+  --gradient: linear-gradient(90deg, #ee6352, purple, #ee6352);
+}
+
+*,
+*:not(i):before,
+*:not(i)::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--clr-tertiary);
+  /* line-height: 2; */
+  overflow-x: hidden;
+}
+
+app-root {
+  width: 100%;
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.main-grid {
+  width: min(90%, 1100px);
+  margin: 0 auto;
+}
+
+a:link,
+a:visited {
+  color: var(--clr-black);
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

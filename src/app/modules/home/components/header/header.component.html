@@ -1,0 +1,27 @@
+<nav class="main-grid flex">
+  <div class="left">
+    <a [routerLink]="['/home']"><h1 class="logo">VSS</h1></a>
+  </div>
+  <ul class="right flex">
+    <li class="nav__item">
+      <a class="nav__item--link" [routerLink]="['patient']">Add a Patient</a>
+    </li>
+    <li class="nav__item" *ngIf="!isAuthenticated()">
+      <a class="nav__item--link" [routerLink]="['admin/login']"
+        >Register A Vaccination</a
+      >
+    </li>
+    <li class="nav__item" *ngIf="isAuthenticated()">
+      <a
+        class="nav__item--link btn btn-danger btn-sm"
+        [routerLink]="['admin/home']"
+        ><i class="fas fa-user-shield mr-2"></i>ADMIN</a
+      >
+    </li>
+    <li class="nav__item" *ngIf="isAuthenticated()">
+      <a class="nav__item--link btn btn-danger btn-sm" (click)="logOut()"
+        >LOG OUT</a
+      >
+    </li>
+  </ul>
+</nav>

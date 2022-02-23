@@ -1,0 +1,123 @@
+{
+  "patients": [
+    {
+      "id": "a23b1863-47d6-4880-a84e-7c382571ad6d",
+      "name": "Ubed Shaikh",
+      "email": "shaikhobaid123@gmail.com",
+      "dob": "1999-09-19",
+      "gender": "male",
+      "pob": "Mumbai",
+      "bloodGroup": "O-",
+      "height": 175,
+      "weight": 65
+    },
+    {
+      "id": "e410c15e-27b7-4cf5-876c-f65d750a60cd",
+      "name": "Sneha",
+      "email": "sneha@gmail.com",
+      "dob": "1999-09-09",
+      "gender": "female",
+      "pob": "Amravati",
+      "bloodGroup": "B-",
+      "height": 176,
+      "weight": 49
+    },
+    {
+      "id": "b84d4d56-764f-4bd9-a6ec-b74b95a1387c",
+      "name": "Yashwant naik",
+      "email": "yash@gmail.com",
+      "dob": "1995-08-25",
+      "gender": "male",
+      "pob": "NA",
+      "bloodGroup": "NA",
+      "height": "NA",
+      "weight": "NA"
+    }
+  ],
+  "admin": [
+    {
+      "id": "a23b1863-47d6-4880-a84e-7c382571ad6d",
+      "name": "Ubed Shaikh",
+      "email": "shaikhobaid123@gmail.com",
+      "dob": "1999-09-19",
+      "vaccination": [
+        {
+          "dose": "1",
+          "doa": "2022-02-01",
+          "brand": "covishield",
+          "givenat": "Mumbai Hospital"
+        },
+        {
+          "dose": "2",
+          "doa": "2022-02-21",
+          "brand": "covishield",
+          "givenat": "Mumbai Hospital"
+        }
+      ]
+    },
+    {
+      "id": "e410c15e-27b7-4cf5-876c-f65d750a60cd",
+      "name": "Sneha",
+      "email": "sneha@gmail.com",
+      "dob": "1999-09-09",
+      "vaccination": [
+        {
+          "dose": "1",
+          "doa": "2022-02-10",
+          "brand": "covaxin",
+          "givenat": "Amravati Hospital"
+        }
+      ]
+    }
+  ],
+  "token": [
+    {
+      "value": "dfb7da5a-98b6-4262-aac1-f1bc5b233630",
+      "id": 1
+    },
+    {
+      "value": "94ee60b3-32b0-4543-82f6-b774daa1d46a",
+      "id": 2
+    },
+    {
+      "value": "4434f19f-d97c-4a6d-9ff4-2fe614b768a6",
+      "id": 3
+    },
+    {
+      "value": "005dc9d4-1ee4-4c99-9256-ca48fee29762",
+      "id": 4
+    },
+    {
+      "value": "4b3be01d-c98f-4bc6-b06a-61285d282436",
+      "id": 5
+    },
+    {
+      "value": "cdb3d439-f60f-4c8d-9307-206a5d33a3ea",
+      "id": 6
+    },
+    {
+      "value": "cad6aff8-8be8-4cce-bcca-a63244b7d1e7",
+      "id": 7
+    },
+    {
+      "value": "52f75c3b-bb5a-4bbb-aca8-e6675d626392",
+      "id": 8
+    },
+    {
+      "value": "ab69c245-7eea-49c0-a080-fd84a3e724e6",
+      "id": 9
+    },
+    {
+      "value": "5f2c0eeb-2992-4040-8d1b-2e75163259f7",
+      "id": 10
+    },
+    {
+      "value": "befa3d5a-79f8-4cc5-bbe7-ea6fe8e005d8",
+      "id": 11
+    },
+    {
+      "value": "a18ff886-5806-4439-b287-56f40da0fe60",
+      "id": 12
+    }
+  ]
+}

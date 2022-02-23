@@ -1,0 +1,215 @@
+<section class="main">
+  <div class="hero-img">
+    <img
+      src="../../../../../../assets/images/avatars/register_a_vaccine.svg"
+      alt="svg"
+    />
+  </div>
+  <div class="form-container">
+    <form
+      class="admin-form"
+      [formGroup]="registerVaccineForm"
+      (ngSubmit)="registervaccine()"
+    >
+      <h3 class="form-title">Register A Vaccination</h3>
+      <div class="form-group email">
+        <label for="email" class="form-label">Email</label>
+        <!-- <input
+          class="form-control"
+          type="text"
+          name="email"
+          id="email"
+          formControlName="email"
+          disabled
+        /> -->
+        <select
+          class="form-control"
+          name="email"
+          id="email"
+          formControlName="email"
+          (change)="selectPatient()"
+        >
+          <!-- <option value="select" selected>Select</option> -->
+          <option *ngFor="let patient of patients" value="{{ patient.email }}">
+            {{ patient.email }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="username" class="form-label">Patient</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="form-control"
+          formControlName="name"
+          placeholder="Name of Patient"
+          disabled
+        />
+        <!-- <select
+          class="form-control"
+          name="username"
+          id="username"
+          formControlName="name"
+          (change)="selectPatient()"
+        >
+          <option value="select" selected>Select</option>
+          <option *ngFor="let patient of patients" value="{{ patient.name }}">
+            {{ patient.name }}
+          </option>
+        </select> -->
+      </div>
+      <div class="form-group">
+        <label for="date" class="form-label">Date Of Birth</label>
+        <input
+          class="form-control"
+          type="date"
+          name="date"
+          id="date"
+          formControlName="dob"
+          disabled
+        />
+      </div>
+      <div class="form-group">
+        <label for="dose" class="form-label"
+          >Vaccination
+          <span *ngIf="isVaccinated" class="badge bg-success mx-1"
+            >DOSE 1 : DONE </span
+          ><span *ngIf="isFullyVaccinated" class="badge bg-success mx-1"
+            >FULLY VACCINATED
+          </span></label
+        >
+        <select
+          name="dose"
+          id="dose"
+          class="form-control"
+          formControlName="vaccination"
+          [disabled]="isFullyVaccinated"
+          #vaccination
+        >
+          <option value="select" selected>Select</option>
+          <option *ngIf="!isVaccinated" value="1">1</option>
+          <option *ngIf="isVaccinated" value="2">2</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="doa" class="form-label"
+          >Date Administered<span
+            *ngIf="isVaccinated"
+            class="badge bg-primary mx-1"
+            >DOSE 1 : {{ selectedPatientVaccinations[0].doa }} </span
+          ><span *ngIf="isFullyVaccinated" class="badge bg-primary mx-1"
+            >DOSE 2 : {{ selectedPatientVaccinations[1].doa }}
+          </span></label
+        >
+        <input
+          class="form-control"
+          type="date"
+          name="doa"
+          id="doa"
+          min="2022-01-01"
+          [max]="todays_Date"
+          formControlName="doadmts"
+          #doa
+        />
+      </div>
+      <div class="form-group">
+        <label for="brand" class="form-label"
+          >Vaccine Brand
+          <span *ngIf="isVaccinated" class="badge bg-dark mx-1"
+            >DOSE 1 :
+            {{ selectedPatientVaccinations[0].brand | uppercase }} </span
+          ><span *ngIf="isFullyVaccinated" class="badge bg-dark mx-1"
+            >DOSE 2 : {{ selectedPatientVaccinations[1].brand | uppercase }}
+          </span></label
+        >
+        <select
+          name="brand"
+          id="brand"
+          class="form-control"
+          formControlName="brand"
+          #brand
+        >
+          <option value="select" selected>Select</option>
+          <option value="covishield">Covisheild</option>
+          <option value="covaxin">Covaxin</option>
+          <option value="sputnik">Sputnik V</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="givenat" class="form-label"
+          >Given At :<span *ngIf="isVaccinated" class="badge bg-info mx-1"
+            >DOSE 1 :
+            {{
+              selectedPatientVaccinations[0].givenat | slice: 0:15 | uppercase
+            }} </span
+          ><span *ngIf="isFullyVaccinated" class="badge bg-info mx-1"
+            >DOSE 2 :
+            {{
+              selectedPatientVaccinations[1].givenat | slice: 0:15 | uppercase
+            }}
+          </span></label
+        >
+        <input
+          type="text"
+          name="givenat"
+          class="form-control"
+          id="givenat"
+          placeholder="Name Of Hospital"
+          formControlName="givenat"
+          #givenat
+        />
+      </div>
+      <div class="btns">
+        <input
+          type="submit"
+          class="btn btn-info"
+          [disabled]="registerVaccineForm.invalid || isFullyVaccinated"
+          value="Save"
+        />
+        <input
+          type="reset"
+          class="btn btn-outline-dark"
+          value="Reset"
+          (click)="onReset()"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="alert-message" [ngClass]="alertStatus ? 'active' : ''">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+      <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path
+          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
+        />
+      </symbol>
+      <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path
+          d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+        />
+      </symbol>
+      <symbol
+        id="exclamation-triangle-fill"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        />
+      </symbol>
+    </svg>
+
+    <div class="alert alert-success d-flex align-items-center" role="alert">
+      <svg
+        class="bi flex-shrink-0 me-2 mx-2"
+        width="24"
+        height="24"
+        role="img"
+        aria-label="Success:"
+      >
+        <use xlink:href="#check-circle-fill" />
+      </svg>
+      <div>Vaccination Registered SuccessFully</div>
+    </div>
+  </div>
+</section>

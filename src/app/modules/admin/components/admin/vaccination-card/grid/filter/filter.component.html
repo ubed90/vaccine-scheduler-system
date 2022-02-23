@@ -1,0 +1,70 @@
+<section class="main">
+  <div class="main-grid grid">
+    <div class="filter-tabs" [ngSwitch]="data.tab">
+      <div class="tab tab-1" *ngSwitchCase="0">
+        <span
+          class="ascending btn btn-outline-primary"
+          (click)="data.sortType = 'ASC'; onChange()"
+          >ASCENDING<i class="fas fa-long-arrow-alt-up mx-1"></i
+        ></span>
+        <span
+          class="ascending btn btn-outline-success"
+          (click)="data.sortType = 'DESC'; onChange()"
+          >DESCENDING<i class="fas fa-long-arrow-alt-down mx-1"></i
+        ></span>
+      </div>
+      <div class="tab tab-2" *ngSwitchCase="1">
+        <span
+          class="ascending btn btn-outline-info"
+          (click)="data.sortType = 'ASC'; onChange()"
+          >ASCENDING<i class="fas fa-long-arrow-alt-up mx-1"></i
+        ></span>
+        <span
+          class="descending btn btn-outline-info"
+          (click)="data.sortType = 'DESC'; onChange()"
+          >DESCENDING<i class="fas fa-long-arrow-alt-down mx-1"></i
+        ></span>
+      </div>
+      <div class="tab tab-3" *ngSwitchCase="2">
+        <span
+          class="covaxin btn btn-secondary"
+          (click)="data.sortBrand = 'covaxin'; onChange()"
+          >COVAXIN</span
+        >
+        <span
+          class="covishield btn btn-warning"
+          (click)="data.sortBrand = 'covishield'; onChange()"
+          >COVI-SHIELD</span
+        >
+        <span
+          class="sputnik btn btn-danger"
+          (click)="data.sortBrand = 'sputnik'; onChange()"
+          >SPUTNIK V</span
+        >
+      </div>
+      <div class="tab tab-4" *ngSwitchCase="3">
+        <span
+          class="firstDose btn btn-outline-dark"
+          (click)="data.vaccination = '1'; onChange()"
+          >FIRST DOSE</span
+        >
+        <span
+          class="fullyVaccinated btn btn-outline-success"
+          (click)="data.vaccination = '2'; onChange()"
+          >FULLY VACCINATED</span
+        >
+      </div>
+    </div>
+    <select
+      name="filter"
+      id="filter"
+      class="form-control filter"
+      [(ngModel)]="data.tab"
+    >
+      <option value="0">By Name</option>
+      <option value="1">By DOB</option>
+      <option value="2">By Brand</option>
+      <option value="3">By Number Of Doses</option>
+    </select>
+  </div>
+</section>

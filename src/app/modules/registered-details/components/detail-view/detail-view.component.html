@@ -1,0 +1,55 @@
+<section class="main">
+  <div class="detail-card">
+    <div class="top">
+      <img
+        src="../../../../../assets/images/avatars/bg-pattern-card.svg"
+        alt="card-top"
+        class="img-top"
+      />
+      <img
+        src="../../../../../assets/images/avatars/user_1.png"
+        class="profile-img"
+        alt="user"
+      />
+    </div>
+    <div class="bottom">
+      <h2 class="card-title">
+        {{ vaccinatedPatient.name }}
+        <span
+          *ngIf="vaccinatedPatient.vaccination.length > 1; else firstDose"
+          class="badge bg-success"
+          >FULLY VACCINATED</span
+        >
+        <ng-template #firstDose>
+          <span class="badge bg-warning text-dark">FIRST DOSE</span>
+        </ng-template>
+      </h2>
+      <p class="text id">
+        <span class="label clr">Unqiue ID</span> :-
+        <span class="uid">{{ vaccinatedPatient.id }}</span>
+      </p>
+      <p class="text dob">
+        <span class="label clr">DOB</span> :- {{ vaccinatedPatient.dob }}
+      </p>
+      <div
+        *ngFor="let vaccinated of vaccinatedPatient.vaccination; index as i"
+        class="vaccination"
+      >
+        <h3 class="dose-title">
+          <span class="label clr">DOSE</span> : {{ vaccinated.dose }}
+        </h3>
+        <p class="dose-doa">
+          <span class="label clr">Date</span> : {{ vaccinated.doa }}
+        </p>
+        <p class="dose-brand">
+          <span class="label clr">Brand</span> :
+          {{ vaccinated.brand | uppercase }}
+        </p>
+        <p class="dose-givenat">
+          <span class="label clr">Given AT</span> :
+          {{ vaccinated.givenat | titlecase }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
